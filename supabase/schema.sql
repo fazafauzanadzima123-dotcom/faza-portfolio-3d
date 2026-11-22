@@ -1,5 +1,5 @@
 -- Skema database portofolio Faza Fauzan Adzima (Supabase PostgreSQL)
--- Aman dijalankan ulang (idempotent).
+-- Aman dijalankan ulang tanpa perintah destruktif (idempotent).
 
 create extension if not exists pgcrypto;
 
@@ -70,26 +70,42 @@ alter table public.achievements enable row level security;
 alter table public.contact_messages enable row level security;
 alter table public.security_scans enable row level security;
 
-drop policy if exists projects_public_select on public.projects;
-create policy projects_public_select
-  on public.projects
-  for select
-  to anon, authenticated
-  using (is_published = true);
+do $$
+begin
+  if not exists (
+    select 1 from pg_policies
+    where schemaname = 'public' and tablename = 'projects' and policyname = 'projects_public_select'
+  ) then
+    create policy projects_public_select
+      on public.projects
+      for select
+      to anon, authenticated
+      using (is_published = true);
+  end if;
 
-drop policy if exists achievements_public_select on public.achievements;
-create policy achievements_public_select
-  on public.achievements
-  for select
-  to anon, authenticated
-  using (is_published = true);
+  if not exists (
+    select 1 from pg_policies
+    where schemaname = 'public' and tablename = 'achievements' and policyname = 'achievements_public_select'
+  ) then
+    create policy achievements_public_select
+      on public.achievements
+      for select
+      to anon, authenticated
+      using (is_published = true);
+  end if;
 
-drop policy if exists security_scans_public_select on public.security_scans;
-create policy security_scans_public_select
-  on public.security_scans
-  for select
-  to anon, authenticated
-  using (true);
+  if not exists (
+    select 1 from pg_policies
+    where schemaname = 'public' and tablename = 'security_scans' and policyname = 'security_scans_public_select'
+  ) then
+    create policy security_scans_public_select
+      on public.security_scans
+      for select
+      to anon, authenticated
+      using (true);
+  end if;
+end
+$$;
 
 -- contact_messages sengaja tidak memiliki policy SELECT/INSERT/UPDATE/DELETE langsung
 -- agar pesan pengunjung tidak terbaca publik dan penulisan hanya melalui RPC tervalidasi.
@@ -147,7 +163,6 @@ begin
 end;
 $$;
 
-revoke all on function public.submit_contact_message(text, text, text, text) from public;
 grant execute on function public.submit_contact_message(text, text, text, text) to anon, authenticated;
 
 create or replace function public.record_security_scan(
@@ -198,7 +213,6 @@ begin
 end;
 $$;
 
-revoke all on function public.record_security_scan(text, int, text, int, int, int) from public;
 grant execute on function public.record_security_scan(text, int, text, int, int, int) to anon, authenticated;
 
 -- Seed awal data nyata Faza Fauzan Adzima
