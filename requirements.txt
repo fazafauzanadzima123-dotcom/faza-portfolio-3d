@@ -1,0 +1,1 @@
+# Backend Python menggunakan pustaka standar Python 3.12 agar cold start ringan.

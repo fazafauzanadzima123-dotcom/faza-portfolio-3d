@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" fill="none">
+  <defs>
+    <radialGradient id="crimsonAura" cx="72%" cy="42%" r="48%">
+      <stop offset="0%" stop-color="#8B0E1A" stop-opacity="0.45"/>
+      <stop offset="55%" stop-color="#31060B" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0A090B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#580A12" stop-opacity="0.68"/>
+      <stop offset="100%" stop-color="#140D10" stop-opacity="0.92"/>
+    </linearGradient>
+    <linearGradient id="spineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DC1E2E"/>
+      <stop offset="50%" stop-color="#6B0B14"/>
+      <stop offset="100%" stop-color="#1A1518"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="#0A090B"/>
+  <rect width="1200" height="800" fill="url(#crimsonAura)"/>
+
+  <!-- Far wing membrane -->
+  <path d="M770 300 L970 110 L1110 225 L1035 320 L980 295 L930 380 L875 330 L815 410 Z" fill="url(#wingGrad)" stroke="#7F111C" stroke-width="2"/>
+  <path d="M770 300 L970 110 M770 300 L1035 320 M770 300 L930 380" stroke="#DC1E2E" stroke-opacity="0.45" stroke-width="1.5"/>
+
+  <!-- Near wing membrane -->
+  <path d="M710 345 L510 130 L405 260 L515 335 L545 430 L620 390 L665 470 L735 395 Z" fill="url(#wingGrad)" stroke="#9A111D" stroke-width="2"/>
+  <path d="M710 345 L510 130 M710 345 L405 260 M710 345 L545 430" stroke="#F25764" stroke-opacity="0.4" stroke-width="1.5"/>
+
+  <!-- Dragon torso, neck, and tail silhouette -->
+  <path d="M585 205 L640 165 L695 190 L675 235 L735 280 L795 365 L855 470 L955 575 L1075 645 L1020 690 L885 615 L775 500 L705 390 L645 290 L605 255 Z" fill="#171316" stroke="url(#spineGrad)" stroke-width="2.5"/>
+
+  <!-- Dorsal crimson ridge spikes -->
+  <path d="M685 190 L708 158 L715 205 L748 182 L746 226 L782 212 L772 258 L814 252 L795 295 L842 308 L818 345 L868 370 L842 402 L898 440 L868 468 L930 518 L898 538" stroke="#DC1E2E" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- Angular dragon head, swept horns, and glowing crimson eye -->
+  <path d="M645 165 L698 108 L675 170 L725 130 L688 188 Z" fill="#2A0B10" stroke="#DC1E2E" stroke-width="1.5"/>
+  <path d="M540 218 L635 165 L678 192 L642 232 L575 240 Z" fill="#1D1619" stroke="#9A111D" stroke-width="2"/>
+  <path d="M555 245 L635 232 L615 262 L565 255 Z" fill="#120E10" stroke="#6E656B" stroke-width="1.5"/>
+  <polygon points="615,198 634,193 628,205" fill="#F25764"/>
+
+  <!-- Tail spade tip -->
+  <polygon points="1070,642 1142,670 1105,712 1045,675" fill="#8B0E1A" stroke="#F25764" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0A090B">
+  <meta name="description" content="Portofolio Faza Fauzan Adzima: pelajar, pengembang web Remover.id dan AureonMind, serta pegiat keamanan siber.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Faza Fauzan Adzima | Portofolio Web dan Keamanan Siber">
+  <meta property="og:description" content="Proyek pengembangan web, prestasi, dan lab inspeksi header keamanan HTTP oleh Faza Fauzan Adzima.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Faza Fauzan Adzima | Portofolio Web dan Keamanan Siber</title>
+</head>
+<body id="atas">
+  <a class="skip-link" href="#konten-utama">Lewati ke konten utama</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#atas" aria-label="Faza, kembali ke atas">FAZA<span class="crimson-mark">.</span></a>
+
+      <nav class="desktop-nav" aria-label="Navigasi utama">
+        <a href="#proyek">Proyek</a>
+        <a href="#prestasi">Prestasi</a>
+        <a href="#lab-keamanan">Lab Keamanan</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+
+      <button type="button" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">
+        Menu
+      </button>
+    </div>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Navigasi seluler" hidden>
+      <div class="wrap mobile-nav-list">
+        <a href="#proyek">Proyek</a>
+        <a href="#prestasi">Prestasi</a>
+        <a href="#lab-keamanan">Lab Keamanan</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="konten-utama">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-stage" aria-hidden="true">
+        <img
+          id="dragon-fallback"
+          class="hero-fallback"
+          src="/assets/dragon-fallback.svg"
+          width="1200"
+          height="800"
+          fetchpriority="high"
+          alt=""
+        >
+        <canvas id="dragon-canvas" class="hero-canvas"></canvas>
+        <div class="hero-scrim"></div>
+      </div>
+
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title">Faza Fauzan <span class="hero-surname">Adzima<span class="crimson-mark">.</span></span></h1>
+          <p class="hero-role">Pelajar, pengembang web, dan pegiat keamanan siber.</p>
+          <p class="hero-summary">Membangun situs publik seperti Remover.id dan AureonMind, sambil mempelajari arsitektur keamanan aplikasi HTTP dan pertahanan sistem digital.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#proyek">Lihat karya</a>
+            <a class="btn btn-secondary" href="#lab-keamanan">Uji keamanan web</a>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          id="motion-toggle"
+          class="btn btn-ghost motion-toggle"
+          aria-pressed="false"
+          hidden
+        >
+          <span class="motion-indicator" aria-hidden="true"></span>
+          <span class="motion-label">Jeda animasi</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section-band" id="proyek" aria-labelledby="judul-proyek">
+      <div class="wrap">
+        <div class="section-head split-head">
+          <h2 id="judul-proyek">Proyek pilihan</h2>
+          <p class="section-intro">Dua produk web aktif yang saya kembangkan. Data proyek diambil dari Supabase lewat endpoint Node.js.</p>
+        </div>
+
+        <div id="proyek-container" class="project-index" aria-live="polite">
+          <div class="state-box">
+            <p class="state-title">Memuat data proyek...</p>
+            <p class="state-detail">Menghubungi layanan portofolio di server.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band band-crimson" id="prestasi" aria-labelledby="judul-prestasi">
+      <div class="wrap achievement-layout">
+        <div class="achievement-lead">
+          <h2 id="judul-prestasi">Prestasi</h2>
+          <p class="section-intro">Catatan kompetisi yang pernah saya raih di tingkat sosial dan bahasa kabupaten.</p>
+        </div>
+
+        <div id="prestasi-container" class="achievements-board" aria-live="polite">
+          <div class="state-box">
+            <p class="state-title">Memuat daftar prestasi...</p>
+            <p class="state-detail">Mengambil rekaman prestasi terverifikasi dari Supabase.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band" id="lab-keamanan" aria-labelledby="judul-lab">
+      <div class="wrap">
+        <div class="section-head split-head">
+          <h2 id="judul-lab">Lab audit header keamanan</h2>
+          <p class="section-intro">Uji 6 header pertahanan HTTP domain publik melalui fungsi backend Python berproteksi anti-SSRF, lalu catat ringkasannya ke Supabase.</p>
+        </div>
+
+        <div class="lab-grid">
+          <div class="lab-controls">
+            <form id="security-form" class="panel-box" novalidate>
+              <div class="field-group">
+                <label for="domain-input">Domain situs publik (HTTPS)</label>
+                <input
+                  id="domain-input"
+                  name="domain"
+                  type="text"
+                  placeholder="contoh: remover.id"
+                  autocomplete="off"
+                  spellcheck="false"
+                  required
+                >
+              </div>
+
+              <div class="preset-row" aria-label="Target uji cepat">
+                <span class="preset-label">Uji cepat:</span>
+                <button type="button" class="btn btn-chip" data-domain="remover.id">remover.id</button>
+                <button type="button" class="btn btn-chip" data-domain="aureonmind.vercel.app">aureonmind.vercel.app</button>
+                <button type="button" class="btn btn-chip" id="scan-self-btn">Situs ini</button>
+              </div>
+
+              <button type="submit" id="scan-submit" class="btn btn-primary btn-full">Periksa header</button>
+            </form>
+
+            <div class="panel-box export-panel">
+              <h3>Ekspor portofolio (Python API)</h3>
+              <p class="muted-copy">Unduh ringkasan profil, proyek, dan prestasi yang disusun langsung oleh backend Python.</p>
+              <div class="export-actions">
+                <a class="btn btn-secondary" href="/api/export_cv?format=md" download="faza-fauzan-adzima-cv.md">Unduh CV Markdown</a>
+                <a class="btn btn-secondary" href="/api/export_cv?format=json" download="faza-fauzan-adzima-cv.json">Unduh Data JSON</a>
+              </div>
+            </div>
+
+            <div class="panel-box">
+              <h3>Riwayat pemindaian Supabase</h3>
+              <div id="riwayat-scan" class="history-list" aria-live="polite">
+                <p class="state-detail">Memuat riwayat pemindaian terakhir...</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="scan-result" class="panel-box scan-result" aria-live="polite">
+            <div class="state-box">
+              <h3>Siap melakukan inspeksi HTTPS</h3>
+              <p class="state-detail">Masukkan domain publik atau pilih salah satu tombol uji cepat di sebelah kiri untuk menilai HSTS, CSP, X-Content-Type-Options, proteksi clickjacking, Referrer-Policy, dan Permissions-Policy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band band-surface" id="kontak" aria-labelledby="judul-kontak">
+      <div class="wrap contact-grid">
+        <div class="contact-info">
+          <h2 id="judul-kontak">Tentang & kontak</h2>
+          <p class="bio-copy">Saya Faza Fauzan Adzima, pelajar yang aktif mengembangkan situs web dan memperdalam keamanan siber. Setiap proyek di atas saya jadikan latihan untuk membangun antarmuka yang cepat sekaligus menjaga sisi backend dan jaringan tetap aman.</p>
+
+          <ul class="direct-channels">
+            <li>
+              <span class="channel-label">WhatsApp</span>
+              <a href="https://wa.me/62882000220587" target="_blank" rel="noopener noreferrer">0882-0002-20587</a>
+            </li>
+            <li>
+              <span class="channel-label">GitHub</span>
+              <a href="https://github.com/fazafauzanadzima123-dotcom" target="_blank" rel="noopener noreferrer">github.com/fazafauzanadzima123-dotcom</a>
+            </li>
+          </ul>
+        </div>
+
+        <form id="contact-form" class="panel-box contact-form" novalidate>
+          <h3>Kirim pesan langsung</h3>
+          <p class="muted-copy">Pesan divalidasi oleh backend JavaScript dan disimpan aman ke Supabase melalui fungsi RPC.</p>
+
+          <div class="field-group">
+            <label for="contact-name">Nama lengkap</label>
+            <input id="contact-name" name="name" type="text" placeholder="Nama Anda" minlength="2" maxlength="80" required>
+          </div>
+
+          <div class="field-group">
+            <label for="contact-email">Alamat email</label>
+            <input id="contact-email" name="email" type="email" placeholder="email@domain.com" minlength="5" maxlength="160" required>
+          </div>
+
+          <div class="field-group">
+            <label for="contact-message">Pesan</label>
+            <textarea id="contact-message" name="message" rows="4" placeholder="Tulis keperluan kolaborasi, proyek web, atau diskusi keamanan..." minlength="10" maxlength="1500" required></textarea>
+          </div>
+
+          <div class="hp-field" aria-hidden="true">
+            <label for="contact-website">Situs web</label>
+            <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" id="contact-submit" class="btn btn-primary">Kirim pesan</button>
+          <div id="contact-feedback" class="form-feedback" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <small>© 2026 Faza Fauzan Adzima</small>
+      <span id="api-health-status" class="health-status">Memeriksa status API...</span>
+      <a class="back-top" href="#atas">Kembali ke atas</a>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
